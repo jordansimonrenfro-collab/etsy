@@ -1,93 +1,60 @@
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <title>Luxury Wedding Planner</title>
+    <link href='https://fonts.googleapis.com/css?family=Cormorant+Garamond|Inter' rel='stylesheet'>
     <style>
-        :root {
-            --blush: #f2d1d1;
-            --sage: #b4c7a1;
-            --midnight: #161f3d;
-            --gold: #d6b56e;
-            --lavender: #d6cdd1;
-            --ivory: #fff;
-            --rose-gold: #b0768a;
-            --forest: #343a3f;
-            --navy: #001f3f;
-            --mauve: #e2b8c0;
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--ivory);
-            color: var(--forest);
-        }
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        /* Add further styling for the planner */
+        body { font-family: 'Inter', sans-serif; }
+        /* additional styling */
     </style>
-    <script>
-        const weddingPlannerDataKey = 'weddingPlannerData';
-        let weddingPlannerData = {};
-
-        function formatCurrency(value) {
-            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
-        }
-
-        function applyTheme(theme) {
-            const root = document.documentElement;
-            root.style.setProperty('--primary-color', theme);
-        }
-
-        function applyMode(mode) {
-            // Logic to show/hide tabs based on mode
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialization logic such as loading data from localStorage
-        });
-
-        // Functionality for drag-and-drop seating
-    </script>
 </head>
 <body>
-    <div class="settings-bar">
-        <label for="wedding-mode">Wedding Mode:</label>
-        <select id="wedding-mode" onchange="applyMode(this.value)">
-            <option value="traditional">Traditional</option>
-            <option value="elopement">Elopement</option>
-            <option value="destination">Destination</option>
-        </select>
-    </div>
-    <div class="color-themes">
-        <!-- 10 luxury color themes -->
-    </div>
-    <div class="currency-selectors">
-        <!-- 10 currency selectors -->
-    </div>
-    <div class="tabs">
-        <div id="dashboard">Dashboard</div>
-        <div id="budget">Budget</div>
-        <div id="expenses">Expenses</div>
-        <div id="vendors">Vendors</div>
-        <div id="compare">Compare</div>
-        <div id="guests">Guests</div>
-        <div id="seating">Seating</div>
-        <div id="wedding-party">Wedding Party</div>
-        <div id="day-schedule">Day Schedule</div>
-        <div id="gifts">Gifts</div>
-        <div id="music">Music</div>
-        <div id="shot-list">Shot List</div>
-        <div id="packing">Packing</div>
-        <div id="checklist">Checklist</div>
-        <div id="how-to">How To</div>
-    </div>
-    <div class="canvas">
-        <!-- Drag and drop seating canvas -->
-    </div>
-    <div class="alerts">
-        <!-- Alert messages for various states -->
-    </div>
+    <header>
+        <h1>Welcome to the Luxury Wedding Planner</h1>
+        <div>
+            <label for='mode'>Wedding Mode:</label>
+            <select id='mode'>
+                <option value='traditional'>Traditional</option>
+                <option value='elopement'>Elopement</option>
+                <option value='destination'>Destination</option>
+            </select>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li>Dashboard</li>
+            <li>Budget</li>
+            <li>Expenses</li>
+            <li>Vendors</li>
+            <li>Compare</li>
+            <li>Guests</li>
+            <li>Seating</li>
+            <li>Wedding Party</li>
+            <li>Day Schedule</li>
+            <li>Gifts</li>
+            <li>Music</li>
+            <li>Shot List</li>
+            <li>Packing</li>
+            <li>Checklist</li>
+            <li>How To</li>
+        </ul>
+    </nav>
+    <script>
+        // JavaScript for managing features such as localStorage, expense tracking, vendor management, etc.
+        const weddingData = {
+            "wedding": { 
+                "couple": "Sophie & James",
+                "weddingDate": "2026-10-21",
+                "theme": "Gold",
+                "mode": "Traditional",
+                "currency": "USD",
+                "settings": { "colorThemes": ["theme1", "theme2", ...], "currencySelectors": ["USD", "EUR", ...] },
+                "tasks": []
+            },
+            // other data structures
+        };
+
+        // Functions to handle data persistence with localStorage, auto-save, JSON export/import, etc.
+    </script>
 </body>
 </html>
