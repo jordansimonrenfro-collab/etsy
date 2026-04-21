@@ -1,1 +1,93 @@
-<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Luxury Wedding Planner</title>\n    <link href=\"https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&display=swap\" rel=\"stylesheet\">\n    <style>\n        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }\n        .navbar { background: #f9f9f9; padding: 10px; display: flex; justify-content: space-between; }\n        .tab { padding: 15px; border: 1px solid #ccc; margin: 5px; cursor: pointer; }\n        .tab.active { background: #fff; border-bottom: none; }\n        .container { padding: 20px; }\n        .hidden { display: none; }\n        .settings { display: flex; justify-content: space-between; padding: 10px; }\n        .theme { margin-right: 15px; }\n        /* Add more styles for luxury aesthetic */\n    </style>\n    <script>\n        const weddingData = { weddingMode: 'Traditional', themeColor: 'Gold', currency: 'USD' };\n        const saveToLocalStorage = () => localStorage.setItem('weddingData', JSON.stringify(weddingData));\n        const loadFromLocalStorage = () => {\n            const data = JSON.parse(localStorage.getItem('weddingData'));\n            if (data) { weddingData.weddingMode = data.weddingMode; weddingData.themeColor = data.themeColor; weddingData.currency = data.currency; }\n        };\n        document.addEventListener('DOMContentLoaded', loadFromLocalStorage);\n    </script>\n</head>\n<body>\n    <div class=\"navbar\">\n        <div class=\"settings\">\n            <div class=\"theme\">Theme: <select id=\"themeSwitcher\">\n                <option value=\"Gold\">Gold</option>\n                <option value=\"Blush\">Blush</option>\n                <option value=\"Sage\">Sage</option>\n                <!-- Add all other themes -->\n            </select></div>\n            <div class=\"currency\">Currency: <select id=\"currencySelector\">\n                <option value=\"USD\">USD</option>\n                <option value=\"EUR\">EUR</option>\n                <!-- Add 10 currencies -->\n            </select></div>\n        </div>\n    </div>\n    <div class=\"container\">\n        <div class=\"tabs\">\n            <div class=\"tab active\" data-tab=\"dashboard\">Dashboard</div>\n            <div class=\"tab\" data-tab=\"budget\">Budget</div>\n            <!-- Add other tabs -->\n        </div>\n        <div id=\"dashboard\">\n            <h1>Wedding Dashboard</h1>\n            <!-- Dashboard content goes here -->\n        </div>\n        <div id=\"budget\" class=\"hidden\">\n            <h1>Budget Tracker</h1>\n            <!-- Budget Tracker content goes here -->\n        </div>\n        <!-- Add content for all tabs -->\n    </div>\n    <script>\n        document.querySelectorAll('.tab').forEach(tab => {\n            tab.addEventListener('click', () => {\n                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));\n                tab.classList.add('active');\n                document.querySelectorAll('.container > div').forEach(content => content.classList.add('hidden'));\n                document.getElementById(tab.getAttribute('data-tab')).classList.remove('hidden');\n            });\n        });\n    </script>\n</body>\n</html>\n
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>Luxury Wedding Planner</title>
+    <style>
+        :root {
+            --blush: #f2d1d1;
+            --sage: #b4c7a1;
+            --midnight: #161f3d;
+            --gold: #d6b56e;
+            --lavender: #d6cdd1;
+            --ivory: #fff;
+            --rose-gold: #b0768a;
+            --forest: #343a3f;
+            --navy: #001f3f;
+            --mauve: #e2b8c0;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--ivory);
+            color: var(--forest);
+        }
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        /* Add further styling for the planner */
+    </style>
+    <script>
+        const weddingPlannerDataKey = 'weddingPlannerData';
+        let weddingPlannerData = {};
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(value);
+        }
+
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            root.style.setProperty('--primary-color', theme);
+        }
+
+        function applyMode(mode) {
+            // Logic to show/hide tabs based on mode
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialization logic such as loading data from localStorage
+        });
+
+        // Functionality for drag-and-drop seating
+    </script>
+</head>
+<body>
+    <div class="settings-bar">
+        <label for="wedding-mode">Wedding Mode:</label>
+        <select id="wedding-mode" onchange="applyMode(this.value)">
+            <option value="traditional">Traditional</option>
+            <option value="elopement">Elopement</option>
+            <option value="destination">Destination</option>
+        </select>
+    </div>
+    <div class="color-themes">
+        <!-- 10 luxury color themes -->
+    </div>
+    <div class="currency-selectors">
+        <!-- 10 currency selectors -->
+    </div>
+    <div class="tabs">
+        <div id="dashboard">Dashboard</div>
+        <div id="budget">Budget</div>
+        <div id="expenses">Expenses</div>
+        <div id="vendors">Vendors</div>
+        <div id="compare">Compare</div>
+        <div id="guests">Guests</div>
+        <div id="seating">Seating</div>
+        <div id="wedding-party">Wedding Party</div>
+        <div id="day-schedule">Day Schedule</div>
+        <div id="gifts">Gifts</div>
+        <div id="music">Music</div>
+        <div id="shot-list">Shot List</div>
+        <div id="packing">Packing</div>
+        <div id="checklist">Checklist</div>
+        <div id="how-to">How To</div>
+    </div>
+    <div class="canvas">
+        <!-- Drag and drop seating canvas -->
+    </div>
+    <div class="alerts">
+        <!-- Alert messages for various states -->
+    </div>
+</body>
+</html>
